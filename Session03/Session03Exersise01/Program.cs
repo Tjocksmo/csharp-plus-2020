@@ -10,6 +10,7 @@ namespace Session03Exersise01
         {
             double doubleMid = 0;
             double dblSum = 0;
+            int intParsedOk = 0;
 
             Console.WriteLine("Ange ett antal siffror, separerat med kommatecken");
             var input = Console.ReadLine();
@@ -24,6 +25,7 @@ namespace Session03Exersise01
                 {
                     numberArray[i] = Convert.ToDouble(inputArray[i]);
                     parsed = true;
+                    intParsedOk++;
                 }
 
                 catch (Exception)
@@ -39,15 +41,23 @@ namespace Session03Exersise01
 
                 dblSum += numberArray[i].Value;
             }
-            doubleMid = dblSum / numberArray.Length;
+            doubleMid = dblSum / intParsedOk;
 
 
-            Console.WriteLine($"Min value is: {numberArray.Min()} Maxvalue is: {numberArray.Max()} Total value is: {dblSum} Midvalue is: {doubleMid}");
+            Console.WriteLine($"Min value is: {numberArray.Min()} Maxvalue is: {numberArray.Max()} Total value is: {dblSum} Midvalue is: {doubleMid :f2}");
+
+            Console.WriteLine("\nPress any key to quit program...");
+            Console.ReadKey(true);
 
             //for (int i = 0; i < inputArray.Length; i++)
             //{
-            //    NumberStyles numberStyle = NumberStyles.Integer | NumberStyles.Float;
+            //    NumberStyles numberStyle = NumberStyles.Integer | NumberStyles.Float;     //Bestämmer vilken typ man vill parsa till!
+            //    IFormatProvider formatProvider = new CultureInfo("sv-SE"); //CultureInfo.InvariantCulture;
+            //    IFormatProvider currentNulture = CultureInfo.CurrentCulture;*/
+
             //    bool parsed = double.TryParse(inputArray[i], out double parsedValue);
+
+
 
             //if (parsed == true)
             //{
@@ -57,7 +67,7 @@ namespace Session03Exersise01
             //{
             //    numberArray[i] = null;
             //}
-        }   
+        }
 
         //static double GetDoubleValue(string input)
         //{
